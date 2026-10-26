@@ -52,14 +52,14 @@
     {
       "@type": "TechArticle",
       "@id": "https://yapiriscript.com/yapiri-specification.html#techarticle",
-      "headline": "Yapiri Script Specification v2.0",
+      "headline": "Yapiri Script Specification v2.1",
       "name": "Yapiri Script Technical Specification",
       "description": "The official technical specification for the Yapiri script for Kokborok: glyph inventory, Unicode PUA mapping, phonemic rules, OpenType features, and romanization.",
       "url": "https://yapiriscript.com/yapiri-specification.html",
       "image": "https://yapiriscript.com/assets/images/og-image.png",
       "inLanguage": "en",
       "datePublished": "2026-05-01",
-      "dateModified": "2026-06-14",
+      "dateModified": "2026-10-26",
       "author": { "@type": "Person", "name": "Animesh Debbarma" },
       "publisher": { "@type": "Person", "name": "Animesh Debbarma" },
       "about": {
@@ -68,7 +68,7 @@
         "alternateName": "Tiprakok",
         "sameAs": "https://en.wikipedia.org/wiki/Kokborok"
       },
-      "version": "2.0",
+      "version": "2.1",
       "proficiencyLevel": "Expert",
       "keywords": "Kokborok script, Unicode PUA, phonemic alphabet, glyph inventory, OpenType, Yapiri"
     },
@@ -287,7 +287,7 @@
     <li><a href="community.html">Community</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="ucsur.html">UCSUR</a></li>
-    <li><span class="nav-badge">v2.0</span></li>
+    <li><span class="nav-badge">v2.1</span></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
@@ -331,7 +331,7 @@
   </ul>
   <div class="toc-version">
     Yapiri Script Spec<br>
-    Version 2.0 · June 2026<br>
+    Version 2.1 · October 2026<br>
     Tiprasa Language Project<br>
     Tripura, India
   </div>
@@ -346,7 +346,7 @@
     <h1 class="spec-title">Yapiri <span>Script</span></h1>
     <p class="spec-subtitle">A complete formal description of the Yapiri writing system for Kokborok — covering glyph inventory, phonological mapping, PUA encoding, OpenType layout, and design rationale.</p>
     <div class="spec-meta-row">
-      <div class="spec-meta-item"><span class="spec-meta-label">Version</span><span class="spec-meta-value">2.0 — June 2026</span></div>
+      <div class="spec-meta-item"><span class="spec-meta-label">Version</span><span class="spec-meta-value">2.1 — October 2026</span></div>
       <div class="spec-meta-item"><span class="spec-meta-label">Language</span><span class="spec-meta-value">Kokborok (Tiprasa)</span></div>
       <div class="spec-meta-item"><span class="spec-meta-label">Script Type</span><span class="spec-meta-value">Phonemic Alphabet</span></div>
       <div class="spec-meta-item"><span class="spec-meta-label">Encoding</span><span class="spec-meta-value">Unicode PUA · U+F1CA0–U+F1CFF</span></div>
@@ -363,7 +363,7 @@
     <div class="spec-body reveal">
       <p>Yapiri (<em style="font-family:'Yapiri',serif;font-style:normal;">&#xF1CBA;&#xF1CA0;&#xF1CA7;&#xF1CA2;&#xF1CB7;&#xF1CA2;</em>) is an original writing system created for the <strong>Kokborok language</strong>, the mother tongue of the Tiprasa people of Tripura, Northeast India. The name <em>yapiri</em> means "<span class="tip" data-tip="lit. footsteps in Kokborok">footprints</span>" in Kokborok, reflecting the essential nature of all writing: traces of a living voice, preserved across time.</p>
       <p>Kokborok is a Tibeto-Burman language spoken by approximately one million people. It has historically been written in the <strong>Bengali script</strong>, and more recently in the <strong>Roman script</strong> — neither of which maps cleanly to Kokborok phonology. Several dedicated scripts have been proposed over the decades (including Aima and Kókmari), but none has achieved broad adoption. Yapiri represents a new effort: a script designed from first principles, shaped entirely by the phonological requirements of the language.</p>
-      <p>This document constitutes the authoritative technical specification for the Yapiri script, version 2.0. It is intended for linguists, font engineers, software developers, keyboard layout designers, educators, and community members who wish to understand, implement, or extend the system.</p>
+      <p>This document constitutes the authoritative technical specification for the Yapiri script, version 2.1. It is intended for linguists, font engineers, software developers, keyboard layout designers, educators, and community members who wish to understand, implement, or extend the system.</p>
     </div>
     <div class="stat-grid reveal">
       <div class="stat-cell"><span class="stat-num">45</span><span class="stat-lbl">Total Characters</span></div>
@@ -575,7 +575,7 @@
           <tr><td class="td-code">U+F1CB4</td><td class="td-roman">n′</td><td class="td-roman">/ɲ/</td><td class="td-cat">Nasal</td><td class="td-note">Palatal; as in in′ (yes), in′hi (no)</td></tr>
           <tr><td class="td-code">U+F1CB7</td><td class="td-roman">r</td><td class="td-roman">/r/</td><td class="td-cat">Liquid</td><td class="td-note">Rhotic</td></tr>
           <tr><td class="td-code">U+F1CB8</td><td class="td-roman">l</td><td class="td-roman">/l/</td><td class="td-cat">Liquid</td><td class="td-note">Lateral</td></tr>
-          <tr><td class="td-code">U+F1CBB</td><td class="td-roman">w</td><td class="td-roman">/w/</td><td class="td-cat">Glide</td><td class="td-note">Labio-velar; word-initial only</td></tr>
+          <tr><td class="td-code">U+F1CBB</td><td class="td-roman">w</td><td class="td-roman">/w/</td><td class="td-cat">Glide</td><td class="td-note">Labio-velar; begins a syllable: word-initial or after a vowel, never after a consonant</td></tr>
           <tr><td class="td-code">U+F1CBA</td><td class="td-roman">y</td><td class="td-roman">/j/</td><td class="td-cat">Glide</td><td class="td-note">Palatal</td></tr>
           <tr class="row-group-head"><td colspan="5">Fricatives</td></tr>
           <tr><td class="td-code">U+F1CB6</td><td class="td-roman">s</td><td class="td-roman">/s/</td><td class="td-cat">Fricative</td><td class="td-note">Native</td></tr>
@@ -634,7 +634,7 @@
           <tr><td class="td-code">U+F1CA2</td><td class="td-roman">i</td><td class="td-roman">/i/</td><td class="td-roman">[i]</td><td class="td-note">Close front unrounded</td></tr>
           <tr><td class="td-code">U+F1CA3</td><td class="td-roman">u</td><td class="td-roman">/u/</td><td class="td-roman">[u]</td><td class="td-note">Close back rounded</td></tr>
           <tr><td class="td-code">U+F1CA4</td><td class="td-roman">o</td><td class="td-roman">/o/</td><td class="td-roman">[o]</td><td class="td-note">Close-mid back rounded</td></tr>
-          <tr><td class="td-code">U+F1CA5</td><td class="td-roman">ə</td><td class="td-roman">/ə/</td><td class="td-roman">[ə]</td><td class="td-note">Mid central unrounded; mid-word only, never word-initial</td></tr>
+          <tr><td class="td-code">U+F1CA5</td><td class="td-roman">ə</td><td class="td-roman">/ə/</td><td class="td-roman">[ə]</td><td class="td-note">Mid central unrounded; only after a consonant, never word-initial</td></tr>
           <tr class="row-group-head"><td colspan="5">Combining Diacritic — High Tone Only</td></tr>
           <tr><td class="td-code">U+F1CD1</td><td class="td-roman">◌́</td><td class="td-roman">—</td><td class="td-roman">—</td><td class="td-note">High tone mark; placed above the vowel of the syllable</td></tr>
         </tbody>
@@ -707,7 +707,8 @@
     <div class="callout gold reveal">
       <strong>Global note:</strong> All Yapiri characters now reside within the single Plane 15 block. No standard combining marks or BMP PUA codepoints are required to render Yapiri text — the font is fully self-contained within U+F1CA0–U+F1CFF.
     </div>
-    <div class="callout gold reveal"><strong>PUA stability notice:</strong> These codepoint assignments are stable for version 2.0 and will not be changed without a major version revision. The v1.0 → v2.0 migration was itself such a major revision, undertaken specifically to deconflict the encoding before wider adoption. Any future official Unicode encoding will be issued as a separate encoding with a migration path documented in this specification.</div>
+    <div class="callout gold reveal"><strong>PUA stability notice:</strong> These codepoint assignments are stable for the 2.x series (version 2.0 and its minor revisions) and will not be changed without a major version revision. The v1.0 → v2.0 migration was itself such a major revision, undertaken specifically to deconflict the encoding before wider adoption. Any future official Unicode encoding will be issued as a separate encoding with a migration path documented in this specification.</div>
+    <div class="callout gold reveal"><strong>Version 2.1 (October 2026) — Rule R6 revised:</strong> R6 previously stated that the consonant w appears only word-initially and that a romanized &lsquo;w&rsquo; anywhere else in a word is always the schwa. It now follows the sound&rsquo;s role in the syllable: w is the consonant wherever it begins a syllable (at the start of a word, or directly after a vowel, as in <em>awar</em>), and the schwa only after a consonant. Texts converted under the 2.0 wording may differ for words with a w between two vowels. No codepoints, glyphs or font data changed in this revision.</div>
     <div class="spec-body reveal">
       <p>To render Yapiri text, the <strong>Yapiri TTF font</strong> must be installed. Without it, PUA codepoints render as boxes or missing glyph indicators in all applications. This is normal behavior for PUA-encoded scripts and is not a font error.</p>
     </div>
@@ -760,7 +761,7 @@
           <tr><td class="td-code">R3</td><td>A word or syllable beginning with a vowel = vowel codepoint with no preceding consonant</td><td class="td-note">U+F1CA0 alone = /a/</td></tr>
           <tr><td class="td-code">R4</td><td>Consonant clusters are written by placing consonant codepoints sequentially with no vowel between</td><td class="td-note">U+F1CA7 + U+F1CB7 = /pr/</td></tr>
           <tr><td class="td-code">R5</td><td>High tone is marked by U+F1CD1 placed after the vowel codepoint of the syllable</td><td class="td-note">U+F1CA0 + U+F1CD1 = /á/</td></tr>
-          <tr><td class="td-code">R6</td><td>Schwa (U+F1CA5) appears only mid-word, never word-initial. Consonant w (U+F1CBB) appears only word-initially, never mid-word. The 'w' in Kokborok romanization that appears mid-word is always written as schwa ə in Yapiri.</td><td class="td-note"><span style="font-family:'Yapiri',serif;font-size:1rem;color:var(--parchment);">&#xF1CBB;&#xF1CA0;&#xF1CA9;</span> wak (pig) — W at word start &nbsp;·&nbsp; <span style="font-family:'Yapiri',serif;font-size:1rem;color:var(--parchment);">&#xF1CA9;&#xF1CA5;&#xF1CA8;&#xF1CA5;&#xF1CA2;</span> kwtwi (sweet) — ə mid-word</td></tr>
+          <tr><td class="td-code">R6</td><td>The consonant w (U+F1CBB) is written wherever the sound begins a syllable: at the start of a word, or directly after a vowel. The schwa (U+F1CA5) is written only after a consonant, so it never begins a word and never follows a vowel. A 'w' in Kokborok romanization that follows a consonant is the schwa ə in Yapiri; a 'w' at the start of a word or after a vowel is the consonant w. Rationale: a glide begins a syllable and is therefore a consonant, while a schwa can form the core of a syllable and is therefore a vowel.</td><td class="td-note"><span style="font-family:'Yapiri',serif;font-size:1rem;color:var(--parchment);">&#xF1CBB;&#xF1CA0;&#xF1CA9;</span> wak (pig) — W at word start &nbsp;·&nbsp; <span style="font-family:'Yapiri',serif;font-size:1rem;color:var(--parchment);">&#xF1CA9;&#xF1CA5;&#xF1CA8;&#xF1CA5;&#xF1CA2;</span> kwtwi (sweet) — ə after a consonant &nbsp;·&nbsp; <span style="font-family:'Yapiri',serif;font-size:1rem;color:var(--parchment);">&#xF1CA0;&#xF1CBB;&#xF1CA0;&#xF1CB7;</span> awar (field) — w after a vowel stays w</td></tr>
           <tr><td class="td-code">R7</td><td>Spaces separate words; no special word-joiner is required. Reduplicated words are written out in full.</td><td class="td-note">U+0020 space as normal</td></tr>
         </tbody>
       </table>
@@ -798,7 +799,7 @@
           <tr><td class="td-roman">n′</td><td class="td-roman">/ɲ/</td><td class="td-roman">[ɲ]</td><td class="td-note">Palatal nasal (n-prime); see §5</td></tr>
           <tr><td class="td-roman">s, h, v, z</td><td class="td-roman">/s/, /h/, /v/, /z/</td><td class="td-roman">as IPA</td><td class="td-note">v, z = secondary loanword characters</td></tr>
           <tr><td class="td-roman">a, i, u, e, o</td><td class="td-roman">/a/, /i/, /u/, /e/, /o/</td><td class="td-roman">as IPA</td><td class="td-note">Core vowels</td></tr>
-          <tr><td class="td-roman">ə</td><td class="td-roman">/ə/</td><td class="td-roman">[ə]</td><td class="td-note">Mid-central unrounded; mid-word only</td></tr>
+          <tr><td class="td-roman">ə</td><td class="td-roman">/ə/</td><td class="td-roman">[ə]</td><td class="td-note">Mid-central unrounded; only after a consonant</td></tr>
         </tbody>
       </table>
     </div>
