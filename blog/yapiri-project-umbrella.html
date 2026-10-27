@@ -427,7 +427,7 @@
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js';
   import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'https://www.gstatic.com/firebasejs/12.13.0/firebase-app-check.js';
   import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from 'https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js';
-  const firebaseConfig={apiKey:"AIzaSyDdj5rM3BDDzpDop_UKZgEMMYjgjSbjluA",authDomain:"yapiriscript-df55b.firebaseapp.com",projectId:"yapiriscript-df55b",storageBucket:"yapiriscript-df55b.firebasestorage.app",messagingSenderId:"399359153590",appId:"1:399359153590:web:86c6a0a46556cf568a5d17"};
+  const firebaseConfig={apiKey:"AIzaSyDdj5rM3BDDzpDop_UKZgEMMYjgjSbjluA",authDomain:"yapiriscript-df55b.firebaseapp.com",projectId:"yapiriscript-df55b",storageBucket:"yapiriscript-df55b.firebasestorage.app",messagingSenderId:"399359153590",appId:"1:399359153590:web:7af1ee83347138028a5d17"};
   const POST_ID='yapiri-project-umbrella';
   const app=initializeApp(firebaseConfig);
   try { if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') { self.FIREBASE_APPCHECK_DEBUG_TOKEN = true; } initializeAppCheck(app, { provider: new ReCaptchaEnterpriseProvider('6LcaxgIuAAAAABgxwW1T-bEEpTr3INSUQVOM4wTZ'), isTokenAutoRefreshEnabled: true }); } catch (e) { console.warn('App Check init failed', e); }
