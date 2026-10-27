@@ -1,12 +1,10 @@
-# Opens the Tally poem form on the 1st of each month and closes it after the 25th (India time).
-# Runs every night at 00:05 IST and sets the form to match today's date, so it also self-corrects.
-# Needs two repository secrets: TALLY_API_KEY and TALLY_FORM_ID (see the instructions in chat).
+yaml
 name: Poem form window
 
 on:
   schedule:
     - cron: '35 18 * * *'   # 18:35 UTC = 00:05 India time
-  workflow_dispatch: {}      # lets you run it by hand from the Actions tab
+  workflow_dispatch: {}
 
 jobs:
   set-status:
@@ -20,8 +18,12 @@ jobs:
           DAY=$(TZ=Asia/Kolkata date +%-d)
           if [ "$DAY" -le 25 ]; then STATUS=PUBLISHED; else STATUS=DRAFT; fi
           echo "India day of month: $DAY -> setting form to $STATUS"
-          curl -fsS -X PATCH "https://api.tally.so/forms/${TALLY_FORM_ID}" \
+          echo "API key length: ${#TALLY_API_KEY}, form id length: ${#TALLY_FORM_ID}"
+          HTTP=$(curl -sS -o resp.json -w "%{http_code}" -X PATCH "https://api.tally.so/forms/${TALLY_FORM_ID}" \
             -H "Authorization: Bearer ${TALLY_API_KEY}" \
             -H "Content-Type: application/json" \
-            -d "{\"status\":\"${STATUS}\"}" > /dev/null
-          echo "Done."
+            -d "{\"status\":\"${STATUS}\"}")
+          echo "Tally replied with HTTP $HTTP"
+          cat resp.json
+          echo
+          [ "$HTTP" -lt 400 ]
