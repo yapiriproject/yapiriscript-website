@@ -19,7 +19,7 @@ jobs:
             BODY='{"status":"PUBLISHED","settings":{"isClosed":false}}'
             echo "India day $DAY -> opening the form"
           else
-            BODY='{"status":"PUBLISHED","settings":{"isClosed":true,"closeMessageTitle":"Submissions are closed for now","closeMessageDescription":"The poem window is open from the 1st to the 25th of every month (India time). Please come back on the 1st."}}'
+            BODY='{"status":"PUBLISHED","settings":{"isClosed":true,"closeMessageTitle":"Submissions are closed for now","closeMessageDescription":"The poem window is open from the 1st to the 25th of every month (India time). Please come back on the 1st of next month."}}'
             echo "India day $DAY -> closing the form"
           fi
           HTTP=$(curl -sS -o resp.json -w "%{http_code}" -X PATCH "https://api.tally.so/forms/${TALLY_FORM_ID}" \
