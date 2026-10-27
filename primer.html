@@ -38,7 +38,7 @@
 <meta property="twitter:image:alt" content="Yapiri primer — a beginner's guide to writing the Kokborok language">
 
 <!-- ICONS & FONTS -->
-<link rel="icon" type="image/svg+xml" href="assets/images/favicon.png?v=6">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.ico?v=5">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Teko:wght@300;400;500&display=swap" rel="stylesheet">
@@ -217,7 +217,7 @@
     nav { padding:1rem 1.5rem; }
     .nav-badge { display:none; }
   }
-   @media(max-width:1024px) {
+   @media(max-width:700px) {
     .nav-links { display:none; }
     .hamburger { display:flex; }
     .words-grid { grid-template-columns:1fr; }
@@ -279,11 +279,8 @@
     .download-section { display:none; }
     .reveal { opacity:1 !important; transform:none !important; }
   }
-::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: var(--ink); }
-  ::-webkit-scrollbar-thumb { background: var(--stone); border-radius: 0; }
 </style>
-<link rel="stylesheet" href="mobile-menu-fix.css"></head>
+</head>
 <body>
 
 <nav>
@@ -292,12 +289,11 @@
     <li><a href="about.html">About</a></li>
     <li><a href="script.html">Script</a></li>
     <li><a href="yapiri-specification.html">Spec</a></li>
-    <li><a href="learn.html">Learn</a></li><li><a href="try.html">Try</a></li>
+    <li><a href="try.html">Try</a></li>
     <li><a href="download.html">Download</a></li>
     <li><a href="community.html">Community</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="ucsur.html">UCSUR</a></li>
-    <li><span class="nav-badge">v2.0</span></li>
+    <li><span class="nav-badge">v2.1</span></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
@@ -307,11 +303,10 @@
   <a href="about.html" onclick="closeMenu()">About</a>
   <a href="script.html" onclick="closeMenu()">Script</a>
   <a href="yapiri-specification.html" onclick="closeMenu()">Spec</a>
-  <a href="learn.html" onclick="closeMenu()">Learn</a><a href="try.html" onclick="closeMenu()">Try</a>
+  <a href="try.html" onclick="closeMenu()">Try</a>
   <a href="download.html" onclick="closeMenu()">Download</a>
   <a href="community.html" onclick="closeMenu()">Community</a>
   <a href="blog.html" onclick="closeMenu()">Blog</a>
-  <a href="ucsur.html" onclick="closeMenu()">UCSUR</a>
 </div>
 
 <!-- HERO -->
@@ -373,7 +368,7 @@
     <div class="glyph-card"><span class="glyph-char">&#xF1CA5;</span><span class="glyph-roman">ə</span><span class="glyph-hint">as in "twi"</span></div>
   </div>
   <div class="callout terra">
-    <strong>Note on ə (schwa):</strong> The schwa is the neutral mid-central vowel — the "uh" sound in unstressed syllables. In Yapiri, it <strong>never starts a word</strong>. It only appears in the middle of a word.
+    <strong>Note on ə (schwa):</strong> The schwa is the neutral mid-central vowel — the "uh" sound in unstressed syllables. In Yapiri, it is written <strong>only after a consonant</strong>: it never starts a word and never follows a vowel.
   </div>
 </section>
 
@@ -441,9 +436,9 @@
   </div>
 
   <div class="callout terra reveal">
-    <strong>Note on W:</strong> The consonant W only ever appears at the <strong>start of a word</strong>. The W that appears mid-word in Kokborok romanization represents the schwa vowel <strong>ə</strong> — not the consonant W.<br><br>
+    <strong>Note on W:</strong> The consonant W is written wherever the sound <strong>begins a syllable</strong>: at the start of a word, or directly after a vowel (as in <em>awan</em>). A W that comes directly after a consonant (as in <em>twi</em>) represents the schwa vowel <strong>ə</strong> — not the consonant W. A glide begins a syllable, so it is a consonant; a schwa can be the core of a syllable, so it is a vowel.<br><br>
     Example — <em>watwi</em> (rain): <span style="font-family:'Yapiri',serif;font-size:1.4rem;color:var(--parchment);vertical-align:middle;">&#xF1CBB;&#xF1CA0;&#xF1CA8;&#xF1CA5;&#xF1CA2;</span> &nbsp;
-    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--stone);">w·a·t·ə·i — first W is the consonant, second W is written as ə</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--stone);">w·a·t·ə·i — the first W begins the word, so it is the consonant; the second W follows the consonant t, so it is written as ə</span>
   </div>
 </section>
 
@@ -552,16 +547,16 @@
     <div class="rule-item">
       <div class="rule-num">4</div>
       <div class="rule-body">
-        <div class="rule-title">Schwa (ə) never starts a word</div>
-        <p class="rule-text">The schwa vowel only appears inside words, never at the beginning. Other vowels can start a word.</p>
+        <div class="rule-title">Schwa (ə) only follows a consonant</div>
+        <p class="rule-text">The schwa vowel is written only after a consonant. It never begins a word and never follows a vowel. Other vowels can start a word.</p>
       </div>
     </div>
 
     <div class="rule-item">
       <div class="rule-num">5</div>
       <div class="rule-body">
-        <div class="rule-title">W only starts words</div>
-        <p class="rule-text">The consonant W only ever appears at the very beginning of a word. It will never be found in the middle of a Kokborok word in the Yapiri script.</p>
+        <div class="rule-title">W begins a syllable</div>
+        <p class="rule-text">The consonant W is written at the start of a word or directly after a vowel (<em>awan</em>), wherever the sound begins a syllable. It is never written directly after a consonant — there the schwa ə is used.</p>
       </div>
     </div>
 
