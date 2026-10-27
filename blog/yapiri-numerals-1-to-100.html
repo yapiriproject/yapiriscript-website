@@ -534,10 +534,13 @@
 </script>
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js';
+  import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'https://www.gstatic.com/firebasejs/12.13.0/firebase-app-check.js';
   import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from 'https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js';
   const firebaseConfig={apiKey:"AIzaSyDdj5rM3BDDzpDop_UKZgEMMYjgjSbjluA",authDomain:"yapiriscript-df55b.firebaseapp.com",projectId:"yapiriscript-df55b",storageBucket:"yapiriscript-df55b.firebasestorage.app",messagingSenderId:"399359153590",appId:"1:399359153590:web:86c6a0a46556cf568a5d17"};
   const POST_ID='yapiri-numerals-1-to-100';
-  const app=initializeApp(firebaseConfig);const db=getFirestore(app);const postRef=doc(db,'posts',POST_ID);const commentsRef=collection(db,'posts',POST_ID,'comments');
+  const app=initializeApp(firebaseConfig);
+  try { if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') { self.FIREBASE_APPCHECK_DEBUG_TOKEN = true; } initializeAppCheck(app, { provider: new ReCaptchaEnterpriseProvider('6LcaxgIuAAAAABgxwW1T-bEEpTr3INSUQVOM4wTZ'), isTokenAutoRefreshEnabled: true }); } catch (e) { console.warn('App Check init failed', e); }
+  const db=getFirestore(app);const postRef=doc(db,'posts',POST_ID);const commentsRef=collection(db,'posts',POST_ID,'comments');
   function fmt(ts){if(!ts)return '';const d=ts.toDate?ts.toDate():new Date(ts);return d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});}
   async function trackView(){try{const k='viewed_'+POST_ID;if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,'1');const s=await getDoc(postRef);if(s.exists()){await updateDoc(postRef,{views:increment(1)});}else{await setDoc(postRef,{views:1,likes:0});}}catch(e){}}
   async function loadPostData(){try{const s=await getDoc(postRef);const d=s.exists()?s.data():{views:0,likes:0};document.getElementById('view-count').textContent=d.views??0;updateLikeUI(d.likes??0);}catch(e){}}
