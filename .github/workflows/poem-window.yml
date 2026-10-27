@@ -15,13 +15,17 @@ jobs:
           TALLY_FORM_ID: ${{ secrets.TALLY_FORM_ID }}
         run: |
           DAY=$(TZ=Asia/Kolkata date +%-d)
-          if [ "$DAY" -le 25 ]; then STATUS=PUBLISHED; else STATUS=DRAFT; fi
-          echo "India day of month: $DAY -> setting form to $STATUS"
-          echo "API key length: ${#TALLY_API_KEY}, form id length: ${#TALLY_FORM_ID}"
+          if [ "$DAY" -le 25 ]; then
+            BODY='{"status":"PUBLISHED","settings":{"isClosed":false}}'
+            echo "India day $DAY -> opening the form"
+          else
+            BODY='{"status":"PUBLISHED","settings":{"isClosed":true,"closeMessageTitle":"Submissions are closed for now","closeMessageDescription":"The poem window is open from the 1st to the 25th of every month (India time). Please come back on the 1st."}}'
+            echo "India day $DAY -> closing the form"
+          fi
           HTTP=$(curl -sS -o resp.json -w "%{http_code}" -X PATCH "https://api.tally.so/forms/${TALLY_FORM_ID}" \
             -H "Authorization: Bearer ${TALLY_API_KEY}" \
             -H "Content-Type: application/json" \
-            -d "{\"status\":\"${STATUS}\"}")
+            -d "$BODY")
           echo "Tally replied with HTTP $HTTP"
           cat resp.json
           echo
